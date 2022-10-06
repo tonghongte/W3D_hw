@@ -1,0 +1,24 @@
+body {
+  background: #1F2227;
+}
+
+.title {
+  display: block;
+  color: white;
+  font-weight: bold;
+  font-size: 5vmin;
+}
+
+.tree {
+  width: 100vw;
+  height: 100vw;
+  position: absolute;
+}
+
+.bg {
+  top: 50vw;
+  left: 30vw;
+  width: 40vw;
+  height: 50vw;
+  position: absolute;
+}
