@@ -1,0 +1,46 @@
+body {
+  background: #1F2227;
+}
+
+input {
+  width: 20vw;
+  font-weight: bold;
+  font-size: 5vmin;
+  margin-left: 5vmin;
+} 
+
+.title {
+  color: white;
+  text-align: center;
+  font-weight: bold;
+  font-size: 5vmin;
+  padding: 2vmin;
+  background: #1A1D21;
+  border-radius: 5vmin;
+}
+
+.txt1 {
+  color: white;
+  text-align: center;
+  font-weight: bold;
+  font-size: 5vmin;
+  padding: 2vmin;
+  background: #1A1D21;
+}
+
+.room {
+  background: #1A1D21;
+  border-radius: 2vmin;
+  margin: 2vmin;
+  padding: 2vmin;
+  width: fit-content;
+  display: block;
+}
+
+.sideL {
+  float: left;
+}
+
+.sideR {
+  float: right;
+}
