@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+
+  <head>
+  <link rel="stylesheet" href="css/hw3.css">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="cache-control" content="no-cache">
+    <title>
+      Home
+    </title>
+  </head>
+  <body>
+<div class="sidenav">
+  <a href="#" onclick="setViewPoint(1)">viewpoint1</a>
+  <a href="#" onclick="setViewPoint(2)">viewpoint2</a>
+  <a href="#" id="lightOnOff">lightOnOff</a>
+  <div class="title">brightness</div>
+  <input type="range" min="0" max="100" value="50" class="slider" id="brightnessRange">
+</div>
+<div class="header" id="myHeader">
+  Web3D技術概論 410806108 I4A08 唐宏德 <br>Homework 3: 室內設計模型 (1) <a href="https://i.imgur.com/2lEwWAT.png" target="_blank">設計圖</a>
+</div>
+  </body>
+
+</html>
+<script src="https://threejs.org/build/three.min.js"></script>
+<script src="https://threejs.org/examples/js/controls/OrbitControls.js"></script>
+<script src="js/hw3.js"></script>
