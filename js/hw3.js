@@ -4,9 +4,14 @@ class lights {
     this.myStatus = true;
     this.brightness = 50;
     this.spotLight = new THREE.SpotLight(0xffffff, this.brightness / 25, 250, Math.PI / 12, 0.974);
-    this.spotLight.position.set(position.x, position.y, position.z);
-    this.spotLight.target = target;
-    scene.add(this.spotLight);
+    this.spotLight.target=target;
+    this.lampModel=  new THREE.Mesh(new THREE.CylinderGeometry(5, 5, 10, 32), new THREE.MeshLambertMaterial());
+    this.lampModel.rotateX( Math.PI / 2 ); 
+    this.lampGroup = new THREE.Group();
+    this.lampGroup.add(this.lampModel,this.spotLight);
+    this.lampGroup.position.set(position.x, position.y, position.z);
+    scene.add(this.lampGroup);
+    this.lampGroup.lookAt(target.position) ;
   }
   changeBrightness(brightness) {
     if (brightness <= 0) {
@@ -492,47 +497,47 @@ function init() {
 
   scene.add(paintD1, paintD2, paintD3, paintD4, paintD5, paintD6, paintD7, paintD8, paintD9, paintD10);
 
-  createLight(new THREE.Vector3(342.5, 150, 250), paintA1);
-  createLight(new THREE.Vector3(157.5, 150, 250), paintA2);
-  createLight(new THREE.Vector3(157.5, 150, 0), paintA3);
-  createLight(new THREE.Vector3(342.5, 150, 0), paintA4);
-  createLight(new THREE.Vector3(0, 150, 0), paintA5);
-  createLight(new THREE.Vector3(-125, 150, 0), paintA6);
-  createLight(new THREE.Vector3(-375, 150, 0), paintA7);
-  createLight(new THREE.Vector3(-270, 150, 125), paintA8);
-  createLight(new THREE.Vector3(-270, 150, 250), paintA9);
+  createLight(new THREE.Vector3(342.5, 140, 240), paintA1);
+  createLight(new THREE.Vector3(157.5, 140, 240), paintA2);
+  createLight(new THREE.Vector3(157.5, 140, -10), paintA3);
+  createLight(new THREE.Vector3(342.5, 140, -10), paintA4);
+  createLight(new THREE.Vector3(0, 140, -10), paintA5);
+  createLight(new THREE.Vector3(-135, 140, -10), paintA6);
+  createLight(new THREE.Vector3(-365, 140, -10), paintA7);
+  createLight(new THREE.Vector3(-270, 140, 100), paintA8);
+  createLight(new THREE.Vector3(-270, 140, 240), paintA9);
 
-  createLight(new THREE.Vector3(342.5, 150, 0), paintB1);
-  createLight(new THREE.Vector3(157.5, 150, 0), paintB2);
-  createLight(new THREE.Vector3(157.5, 150, -250), paintB3);
-  createLight(new THREE.Vector3(342.5, 150, -250), paintB4);
-  createLight(new THREE.Vector3(0, 150, -125), paintB5);
-  createLight(new THREE.Vector3(-125, 150, -250), paintB6);
-  createLight(new THREE.Vector3(-375, 150, -250), paintB7);
-  createLight(new THREE.Vector3(-250, 150, 0), paintB8);
-  createLight(new THREE.Vector3(-250, 150, 125), paintB9);
+  createLight(new THREE.Vector3(342.5, 140, 10), paintB1);
+  createLight(new THREE.Vector3(157.5, 140, 10), paintB2);
+  createLight(new THREE.Vector3(157.5, 140, -240), paintB3);
+  createLight(new THREE.Vector3(342.5, 140, -240), paintB4);
+  createLight(new THREE.Vector3(0, 140, -125), paintB5);
+  createLight(new THREE.Vector3(-135, 140, -240), paintB6);
+  createLight(new THREE.Vector3(-365, 140, -240), paintB7);
+  createLight(new THREE.Vector3(-270, 140, 20), paintB8);
+  createLight(new THREE.Vector3(-270, 140, 150), paintB9);
 
-  createLight(new THREE.Vector3(375, 150, 125), paintC1);
-  createLight(new THREE.Vector3(375, 150, -35.5), paintC2);
-  createLight(new THREE.Vector3(375, 150, -217.5), paintC3);
-  createLight(new THREE.Vector3(125, 150, -217.5), paintC4);
-  createLight(new THREE.Vector3(125, 150, -105.5), paintC5);
-  createLight(new THREE.Vector3(0, 150, -105.5), paintC6);
-  createLight(new THREE.Vector3(-125, 150, -95), paintC7);
-  createLight(new THREE.Vector3(-125, 150, -155), paintC8);
-  createLight(new THREE.Vector3(-125, 150, 125), paintC9);
-  createLight(new THREE.Vector3(-250, 150, 125), paintC10);
+  createLight(new THREE.Vector3(365, 140, 125), paintC1);
+  createLight(new THREE.Vector3(365, 140, -35.5), paintC2);
+  createLight(new THREE.Vector3(365, 140, -217.5), paintC3);
+  createLight(new THREE.Vector3(110, 140, -217.5), paintC4);
+  createLight(new THREE.Vector3(110, 140, -105.5), paintC5);
+  createLight(new THREE.Vector3(-20, 140, -105.5), paintC6);
+  createLight(new THREE.Vector3(-135, 140, -95), paintC7);
+  createLight(new THREE.Vector3(-135, 140, -155), paintC8);
+  createLight(new THREE.Vector3(-135, 140, 125), paintC9);
+  createLight(new THREE.Vector3(-270, 140, 125), paintC10);
 
-  createLight(new THREE.Vector3(125, 150, 125), paintD1);
-  createLight(new THREE.Vector3(125, 150, -35.5), paintD2);
-  createLight(new THREE.Vector3(125, 150, -217.5), paintD3);
-  createLight(new THREE.Vector3(-125, 150, -217.5), paintD4);
-  createLight(new THREE.Vector3(0, 150, -105.5), paintD5);
-  createLight(new THREE.Vector3(-125, 150, -105.5), paintD6);
-  createLight(new THREE.Vector3(-375, 150, -95), paintD7);
-  createLight(new THREE.Vector3(-375, 150, -155), paintD8);
-  createLight(new THREE.Vector3(-250, 150, 125), paintD9);
-  createLight(new THREE.Vector3(-375, 150, 125), paintD10);
+  createLight(new THREE.Vector3(135, 140, 125), paintD1);
+  createLight(new THREE.Vector3(135, 140, -35.5), paintD2);
+  createLight(new THREE.Vector3(135, 140, -217.5), paintD3);
+  createLight(new THREE.Vector3(-105, 140, -217.5), paintD4);
+  createLight(new THREE.Vector3(20, 140, -105.5), paintD5);
+  createLight(new THREE.Vector3(-105, 140, -105.5), paintD6);
+  createLight(new THREE.Vector3(-365, 140, -95), paintD7);
+  createLight(new THREE.Vector3(-365, 140, -155), paintD8);
+  createLight(new THREE.Vector3(-250, 140, 125), paintD9);
+  createLight(new THREE.Vector3(-365, 140, 125), paintD10);
 
 }
 
