@@ -1,0 +1,36 @@
+#container {
+  width: 60vw;
+  height: 60vw;
+  float: left;
+  background-color: pink;
+  margin: 10px;
+}
+
+p {
+  margin: 10px;
+  text-align: justify;
+}
+
+body {
+  background: #1F2227;
+  color: white;
+  font-weight: bold;
+}
+
+button {
+  text-decoration: none;
+  color: crimson;
+  display: inline-block;
+  margin: 1vmin;
+  padding: 1vmin;
+  width: min-content;
+  background: black;
+  border-radius: 5vmin;
+  font-size: 2vmin;
+  font-weight: bold;
+}
+
+button:hover {
+  color: black;
+  background: white;
+}

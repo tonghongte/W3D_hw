@@ -1,0 +1,35 @@
+<html>
+
+  <head>
+    <link rel="stylesheet" href="css/hw4.css">
+
+  </head>
+  <h1 style="font-size:2em; text-align:center;
+  font-weight: bold; margin:15px">
+    Web3D技術概論
+    Homework 4: Patio Design <br>
+    410806108 I4A08 唐宏德
+  </h1>
+
+  <hr>
+
+  <div id="container"></div>
+
+  <div style="width:30vw;float:left; margin:10px;background-color:orange; border-radius: 1vmin">
+    <input type=radio class='gclass' id='placing' name='g' value='place' checked> Place <br>
+    <input type=radio class='gclass' name='g' value='move'> Move<br>
+    <p id='debugMsg'>
+    </p>
+    <br>
+    <button id='clear'>Clear</button>
+    <button id='save'>Save</button>
+    <button id='restore'>Restore</button>
+  </div>
+
+  <script src="https://threejs.org/build/three.min.js"></script>
+  <script src="https://threejs.org/examples/js/controls/OrbitControls.js"></script>
+
+  <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+  <script src="js/hw4.js"></script>
+
+</html>
