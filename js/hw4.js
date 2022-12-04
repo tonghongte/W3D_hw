@@ -1,9 +1,17 @@
 $('.gclass').click(function() {
-  if ($(this).val() === 'place')
+  if ($(this).val() === 'place') {
     placing = true;
-  else // move
+    moving = false;
+    rotating = false;
+  } else if ($(this).val() === 'move') { // move
     placing = false;
-
+    moving = true;
+    rotating = false;
+  } else if ($(this).val() === 'rotate') {
+    placing = false;
+    moving = false;
+    rotating = true;
+  }
 });
 
 var scene, renderer, camera;
@@ -12,6 +20,8 @@ var puck;
 var mouse = new THREE.Vector2();
 var raycaster = new THREE.Raycaster();
 var placing = true;
+var moving = false;
+var rotating = false;
 var pucks = [];
 var thePuck;
 var controls; // move to global, for changing controls
@@ -125,6 +135,7 @@ function init() {
       rec.name = pucks[i].name;
       rec.x = Number(pucks[i].position.x).toFixed(2);
       rec.z = Number(pucks[i].position.z).toFixed(2);
+      rec.rotation = Number(pucks[i].rotation.y).toFixed(2);
       recs.push(rec);
     }
 
@@ -141,6 +152,7 @@ function init() {
     for (let i = 0; i < parseLog.length; i++) {
       var newPuck = bench.clone();
       newPuck.position.set(parseLog[i].x, 0, parseLog[i].z);
+      newPuck.rotation.y = -parseLog[i].rotation;
       scene.add(newPuck);
       pucks.push(newPuck);
     }
@@ -172,11 +184,17 @@ function onMouseDown(event) {
       scene.add(newPuck);
       pucks.push(newPuck);
     }
-  } else { // move
+  } else if (moving === true) { // move
     var intersects = raycaster.intersectObjects(pucks);
     if (intersects.length > 0) {
       indicator.position.copy(intersects[0].point);
+      thePuck = intersects[0].object.parent;
+    }
 
+  } else if (rotating === true) { // rotate
+    var intersects = raycaster.intersectObjects(pucks);
+    if (intersects.length > 0) {
+      indicator.position.copy(intersects[0].point);
       thePuck = intersects[0].object.parent;
     }
 
@@ -200,9 +218,12 @@ function onMouseMove(event) {
 
   raycaster.setFromCamera(mouse, camera);
   var intersects = raycaster.intersectObject(plane);
-  if (intersects.length > 0) {
+  if (intersects.length > 0 && moving === true) {
     controls.enabled = false; // to disable camera movement
     thePuck.position.copy(intersects[0].point);
+  } else if (intersects.length > 0 && rotating === true) {
+    controls.enabled = false; // to disable camera movement 
+    thePuck.lookAt(intersects[0].point);
   }
 
 }
