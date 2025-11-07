@@ -1,6 +1,8 @@
 var shelljs = require('shelljs');
 var express = require('express');
 var app = express();
+var path = require('path')
+app.use(express.static(path.join(__dirname, './')));
 
 app.get('/', function(req, res){
   res.sendFile(__dirname + '/HW5.html');
@@ -48,10 +50,10 @@ app.get ('/api', function (req, res) {
 
 
 // or simply
-// app.listen (8185); 
+// app.listen (8585); 
 // will do
 
-var server = app.listen (8185, function() {
+var server = app.listen (8585, function() {
 	var host = server.address().address;
 	var port = server.address().port;
 	console.log ('server started on http://' + host + ':' + port);

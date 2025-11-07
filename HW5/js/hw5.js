@@ -5,9 +5,9 @@ var workingAni;
 var collideCounter = 0;
 var runningStatus = false;
 var audioOn = false;
-var collisionSound = new Audio('http://drhong.ddns.net:8182/xampp/htdocs/files/sounds/bounce-8111.mp3');
-collisionSound.playbackRate = 5;
-var clickSound = new Audio('http://drhong.ddns.net:8183/files/sounds/rclick-13693.mp3');
+var collisionSound = new Audio('http://drhong.ddns.net:8183/public/asset/bounce-8111.mp3');
+collisionSound.playbackRate = 3;
+var clickSound = new Audio('http://drhong.ddns.net:8183/public/asset/rclick-13693.mp3');
 clickSound.playbackRate = 1.5;
 var pointOnRectangle;
 init();
@@ -77,7 +77,7 @@ function init() {
 }
 var coords;
 function getPos(){
-	$.get('http://drhong.ddns.net:8185/api?circle_r=' + circle.scale.x + '&pos_x=' + circle.position.x + '&pos_y=' + circle.position.y + '&plane_pos_x=' + plane.position.x + '&plane_pos_y=' + plane.position.y + '&point_on_rectangle_x=' + pointOnRectangle.x + '&point_on_rectangle_y=' + pointOnRectangle.y, function(data) {
+	$.get('http://drhong.ddns.net:8585/api?circle_r=' + circle.scale.x + '&pos_x=' + circle.position.x + '&pos_y=' + circle.position.y + '&plane_pos_x=' + plane.position.x + '&plane_pos_y=' + plane.position.y + '&point_on_rectangle_x=' + pointOnRectangle.x + '&point_on_rectangle_y=' + pointOnRectangle.y, function(data) {
     if (data && data.output) {
       coords = data.output.split(" ");
       //console.log (theta + ": " + coords[0] + ", " + coords[1]);
